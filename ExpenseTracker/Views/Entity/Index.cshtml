@@ -1,0 +1,55 @@
+﻿@model List<ExpenseTracker.DB.Model.ExpenseEntry>
+
+@{
+    ViewData["Title"] = "Expense Entries";
+}
+
+<h1>Expense Entries</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Category.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Category.CategoryName
+                </td>
+                <td>
+                    @item.Amount
+                </td>
+                <td>
+                    @item.EntryDate.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @item.Notes
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -21,5 +21,6 @@ namespace ExpenseTracker.DB
                 .HasForeignKey(e => e.CatID)      
                 .OnDelete(DeleteBehavior.Restrict);  
         }
+
     }
 }

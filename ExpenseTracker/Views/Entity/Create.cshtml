@@ -1,0 +1,43 @@
+﻿@model ExpenseTracker.DB.Model.ExpenseEntry
+
+@{
+    ViewData["Title"] = "Create Expense Entry";
+}
+
+<h1>Create Expense Entry</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="CatID" class="control-label">Expense Category</label>
+        <select asp-for="CatID" asp-items="@(new SelectList(ViewBag.Categories, "ID", "CategoryName"))" class="form-control">
+            <option value="">Select a category</option>
+        </select>
+        <span asp-validation-for="CatID" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label">Amount</label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EntryDate" class="control-label">Entry Date</label>
+        <input asp-for="EntryDate" class="form-control" type="date" />
+        <span asp-validation-for="EntryDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Notes" class="control-label">Notes</label>
+        <input asp-for="Notes" class="form-control" />
+        <span asp-validation-for="Notes" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

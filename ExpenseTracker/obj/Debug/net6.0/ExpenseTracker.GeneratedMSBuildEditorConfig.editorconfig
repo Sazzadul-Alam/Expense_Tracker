@@ -16,6 +16,38 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\sazza\source\repos\ExpenseTracker\ExpenseTracker
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Category/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Entity/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50aXR5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Entity/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50aXR5XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Entity/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50aXR5XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Entity/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50aXR5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/sazza/source/repos/ExpenseTracker/ExpenseTracker/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
