@@ -52,8 +52,43 @@ namespace ExpenseTracker.Controllers
             {
                 return NotFound();
             }
+
             return View(category);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("ID,CategoryName")] ExpenseCategory category)
+        {
+            if (id != category.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(category);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ExpenseCategoryExists(category.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(category);
+        }
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -84,6 +119,10 @@ namespace ExpenseTracker.Controllers
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+        private bool ExpenseCategoryExists(int id)
+        {
+            return _context.Categories.Any(e => e.ID == id);
         }
 
 
