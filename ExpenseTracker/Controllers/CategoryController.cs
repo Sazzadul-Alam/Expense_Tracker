@@ -15,7 +15,6 @@ namespace ExpenseTracker.Controllers
             _context = context;
         }
 
-        // GET: ExpenseCategory
         public async Task<IActionResult> Index()
         {
             var categories = await _context.Categories.ToListAsync();

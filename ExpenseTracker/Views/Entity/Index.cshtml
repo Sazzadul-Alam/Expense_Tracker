@@ -9,6 +9,18 @@
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
+<div class="form-group">
+    <form asp-controller="Entity" asp-action="Index" method="get">
+        <label>Start Date:</label>
+        <input type="date" name="startDate" class="form-control" />
+
+        <label>End Date:</label>
+        <input type="date" name="endDate" class="form-control" />
+
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+</div>
+
 
 <table class="table">
     <thead>

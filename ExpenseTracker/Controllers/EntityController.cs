@@ -17,12 +17,17 @@ namespace ExpenseTracker.Controllers
             _context = context;
         }
 
-        // GET: ExpenseEntry
-        public async Task<IActionResult> Index()
+        public IActionResult Index(DateTime? startDate, DateTime? endDate)
         {
-            var entries = await _context.Entrys.Include(e => e.Category).ToListAsync();
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                return RedirectToAction("FilterByDateRange", new { startDate, endDate });
+            }
+
+            var entries = _context.Entrys.Include(e => e.Category).ToList();
             return View(entries);
         }
+
 
 
         // GET: ExpenseEntry/Create
@@ -38,6 +43,13 @@ namespace ExpenseTracker.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (entry.EntryDate > DateTime.Now)
+                {
+                    ModelState.AddModelError("EntryDate", "Expenditure date cannot be a future date.");
+                    ViewBag.Categories = _context.Categories.ToList();
+                    return View(entry);
+                }
+
                 entry.EntryDate = DateTime.Now;
                 _context.Entrys.Add(entry);
                 await _context.SaveChangesAsync();
@@ -48,7 +60,6 @@ namespace ExpenseTracker.Controllers
             return View(entry);
         }
 
-        // GET: ExpenseEntry/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -100,7 +111,6 @@ namespace ExpenseTracker.Controllers
             return View(entry);
         }
 
-        // GET: ExpenseEntry/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -119,7 +129,6 @@ namespace ExpenseTracker.Controllers
             return View(entry);
         }
 
-        // POST: ExpenseEntry/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -139,5 +148,20 @@ namespace ExpenseTracker.Controllers
         {
             return _context.Entrys.Any(e => e.ID == id);
         }
+        public async Task<IActionResult> FilterByDateRange(DateTime startDate, DateTime endDate)
+        {
+            var entries = await _context.Entrys
+                .Include(e => e.Category)
+                .Where(e => e.EntryDate >= startDate && e.EntryDate <= endDate)
+                .ToListAsync();
+
+            ViewBag.StartDate = startDate;
+            ViewBag.EndDate = endDate;
+
+            return View("Index", entries);
+        }
+
+
+
     }
 }
