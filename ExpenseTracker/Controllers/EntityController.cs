@@ -41,8 +41,7 @@ namespace ExpenseTracker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CatID, Amount, EntryDate, Notes")] ExpenseEntry entry)
         {
-            if (ModelState.IsValid)
-            {
+            
                 if (entry.EntryDate > DateTime.Now)
                 {
                     ModelState.AddModelError("EntryDate", "Expenditure date cannot be a future date.");
@@ -54,7 +53,7 @@ namespace ExpenseTracker.Controllers
                 _context.Entrys.Add(entry);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
 
             ViewBag.Categories = _context.Categories.ToList();
             return View(entry);
